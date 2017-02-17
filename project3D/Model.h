@@ -35,7 +35,11 @@ public:
 
 	//void createBuffers(std::vector<OpenGLInfo>& glInfo);
 
-	void createOpenGLBuffers();
+	void createBufferOBJ();
+
+	//void cleanupOpenGLBuffers();
+	/*FBXFile* m_fbx; 
+	unsigned int m_program;*/
 
 	void Model::Draw(glm::mat4 transform, glm::mat4 cameraMatrix, unsigned int programID);
 

@@ -15,7 +15,7 @@ bool Model::loadModel(const char * filename, const char* textureFile)
 	std::string err;
 
 	bool success = tinyobj::LoadObj(&m_attribs, &m_shapes, &m_materials, &err, filename);
-	createOpenGLBuffers();
+	createBufferOBJ();
 
 
 	
@@ -30,7 +30,7 @@ bool Model::loadModel(const char * filename, const char* textureFile)
 //{
 //}
 
-void Model::createOpenGLBuffers()
+void Model::createBufferOBJ()
 {
 	glInfo.resize(m_shapes.size());
 	// grab each shape
@@ -110,6 +110,13 @@ void Model::createOpenGLBuffers()
 //	unsigned int loc = glGetUniformLocation(m_programID, "diffuse");
 //	glUniform1i(loc, 0);
 //}
+
+void LightingApp::createOpenGLBuffers(FBXFile* fbx)
+{ 
+	// create the GL VAO/VBO/IBO data for each mesh for (unsigned int i = 0; i < fbx->getMeshCount(); ++i) { FBXMeshNode* mesh = fbx->getMeshByIndex(i);
+													  // storage for the opengl data in 3 unsigned int unsigned int* glData = new unsigned int[3];
+													  // continued next page…
+}
 
 void Model::Draw(glm::mat4 transform, glm::mat4 cameraMatrix, unsigned int programID)
 {
